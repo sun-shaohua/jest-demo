@@ -173,6 +173,7 @@ export default {
   // testRunner: "jest-circus/runner",
 
   // A map from regular expressions to paths to transformers
+  setupFiles: ["<rootDir>/enzyme_setup.ts"],
   transform: {
     // jest本身只知道加载js｜jsx
     "^.+\.(js|ts|tsx)$": "<rootDir>/node_modules/babel-jest",  //扩展js,ts,tsx文件的处理
@@ -180,7 +181,8 @@ export default {
   },
   moduleNameMapper: {
     "\.(css|less)$": "identity-obj-proxy" // 有使用 sass 需求的同学可以把正则换成 ^\.(css|less|sass|scss)$
-  }
+  },
+  setupFilesAfterEnv: ["<rootDir>/jest-dom-setup.js","<rootDir>/node_modules/jest-enzyme/lib/index.js"],
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
